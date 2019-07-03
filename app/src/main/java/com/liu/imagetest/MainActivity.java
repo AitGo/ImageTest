@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         String newFileName = "test_" + System.currentTimeMillis() + ".mp4";
         // 保存的路径
         String temp = null;
-        final double frameRate = 1;
+        final double frameRate = 0.5;
         try {
             temp = new FileUtils().getSDCardRoot() + "ScreenRecord"
                     + File.separator + newFileName;
