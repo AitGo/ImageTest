@@ -51,4 +51,6 @@ dependencies {
     implementation files('libs/javacpp.jar')
     implementation files('libs/javacv.jar')
     implementation files('libs/isoviewer-1.0-RC-28.jar')
+    //easypermissions
+    implementation 'pub.devrel:easypermissions:2.0.1'
 }

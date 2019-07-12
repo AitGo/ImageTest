@@ -1,5 +1,6 @@
 package com.liu.imagetest;
 
+import android.Manifest;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.MediaCodec;
@@ -7,11 +8,13 @@ import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.media.MediaMuxer;
 import android.os.Environment;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.googlecode.javacv.FFmpegFrameRecorder;
 import com.googlecode.javacv.FrameRecorder;
@@ -21,11 +24,21 @@ import com.liu.imagetest.utils.FileUtils;
 import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
+import java.util.List;
+
+import pub.devrel.easypermissions.EasyPermissions;
 
 import static com.googlecode.javacv.cpp.opencv_highgui.cvLoadImage;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements EasyPermissions.PermissionCallbacks{
 
+    /**
+     * 需要进行检测的权限数组
+     */
+    protected String[] needPermissions = {
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+    };
     private Button btn_start;
     public static final String IMAGE_TYPE = ".png";
 
@@ -36,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //获取权限
+        getPermission();
+
         btn_start = findViewById(R.id.btn);
 
         btn_start.setOnClickListener(new View.OnClickListener() {
@@ -194,4 +210,37 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * 检查权限
+     *
+     * @param
+     * @since 2.5.0
+     */
+    private void getPermission() {
+        if (EasyPermissions.hasPermissions(this, needPermissions)) {
+            //已经打开权限
+//            Toast.makeText(this, "已经申请相关权限", Toast.LENGTH_SHORT).show();
+        } else {
+            //没有打开相关权限、申请权限
+            EasyPermissions.requestPermissions(this, "需要获取您的存储、定位、相机权限", 1, needPermissions);
+        }
+
+    }
+
+    @Override
+    public void onPermissionsGranted(int requestCode, @NonNull List<String> perms) {
+//        Toast.makeText(this, "相关权限获取成功", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onPermissionsDenied(int requestCode, @NonNull List<String> perms) {
+        Toast.makeText(this, "请同意相关权限，否则功能无法使用", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        // Forward results to EasyPermissions
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
+    }
 }
