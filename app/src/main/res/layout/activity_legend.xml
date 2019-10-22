@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:id="@+id/rl_legend"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_des"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_centerHorizontal="true"
+        android:text="1234567890123"
+        android:textColor="@color/black"
+        android:textSize="13sp"/>
+
+    <ImageView
+        android:id="@+id/iv_img"
+        android:layout_width="260dp"
+        android:layout_height="210dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@id/tv_des"
+        android:background="@mipmap/ic_launcher"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@id/tv_des"
+        android:layout_toRightOf="@id/iv_img">
+
+        <LinearLayout
+            android:id="@+id/ll_position"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="北"
+                android:textColor="@color/black"
+                android:textSize="11sp"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="28dp"
+                android:background="@mipmap/position" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_measure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/ll_position"
+            android:text="测量方法：目测"
+            android:textSize="12sp"
+            android:textColor="@color/black"/>
+
+        <TableLayout
+            android:id="@+id/tl_lagend_des_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_below="@id/tv_measure"
+            android:background="@color/black">
+
+            <TableRow
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="20dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="17dp"
+                    android:gravity="center_horizontal"
+                    android:text="图例说明"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:background="@color/white"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="25dp">
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="17dp"
+                    android:src="@mipmap/purple_pin"
+                    android:background="@color/white"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="17dp"
+                    android:gravity="center_horizontal"
+                    android:layout_marginLeft="1dp"
+                    android:text="图例说明"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:background="@color/white"/>
+            </TableRow>
+
+        </TableLayout>
+
+        <TableLayout
+            android:visibility="gone"
+            android:id="@+id/tl_lagend_des_no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/tv_measure"
+            android:background="@color/black">
+
+            <TableRow
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="20dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="20dp"
+                    android:gravity="center_horizontal"
+                    android:text="图例说明"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:background="@color/white"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="25dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_marginLeft="1dp"
+                    android:text="以下空白"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:background="@color/white"/>
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout
+            android:id="@+id/tl_lagend_des"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/tl_lagend_des_image"
+            android:background="@color/black">
+
+            <TableRow
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:layout_height="17dp"
+                    android:gravity="center_horizontal"
+                    android:text="发案时间"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:background="@color/white"/>
+
+                <TextView
+                    android:id="@+id/tv_occurred_start_time"
+                    android:layout_width="0dp"
+                    android:layout_weight="7"
+                    android:layout_height="17dp"
+                    android:layout_marginLeft="1dp"
+                    android:gravity="center_horizontal"
+                    android:text="2019年12月12日10时25分"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:background="@color/white"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="@color/white"
+                    android:gravity="center_horizontal"
+                    android:text="发案地点"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_location"
+                    android:layout_width="0dp"
+                    android:layout_weight="7"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="1dp"
+                    android:gravity="center_horizontal"
+                    android:text="中国湖南省长沙市岳麓区枫林三路39号西中心T2栋"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:background="@color/white"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:layout_height="17dp"
+                    android:gravity="center_horizontal"
+                    android:text="制图单位"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:background="@color/white"/>
+
+                <TextView
+                    android:id="@+id/tv_pic_unit"
+                    android:layout_width="0dp"
+                    android:layout_weight="7"
+                    android:layout_height="17dp"
+                    android:layout_marginLeft="1dp"
+                    android:gravity="center_horizontal"
+                    android:text="邵阳市公安局"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:background="@color/white"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:layout_height="17dp"
+                    android:gravity="center_horizontal"
+                    android:text="制图人"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:background="@color/white"/>
+
+                <TextView
+                    android:id="@+id/tv_pic_person"
+                    android:layout_width="0dp"
+                    android:layout_weight="7"
+                    android:layout_height="17dp"
+                    android:layout_marginLeft="1dp"
+                    android:gravity="center_horizontal"
+                    android:text="胡小伟"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:background="@color/white"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:layout_height="17dp"
+                    android:gravity="center_horizontal"
+                    android:text="制图时间"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:background="@color/white"/>
+
+                <TextView
+                    android:id="@+id/tv_pic_time"
+                    android:layout_width="0dp"
+                    android:layout_weight="7"
+                    android:layout_height="17dp"
+                    android:layout_marginLeft="1dp"
+                    android:gravity="center_horizontal"
+                    android:text="2019.07.22"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:background="@color/white"/>
+            </TableRow>
+
+        </TableLayout>
+
+
+    </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
